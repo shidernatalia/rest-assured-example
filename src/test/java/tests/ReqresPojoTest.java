@@ -10,15 +10,12 @@ import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
 
-/**
- * In tests was used https://reqres.in which is a simulation of real application scenarios
- */
 public class ReqresPojoTest {
     private final static String URL = "https://reqres.in";
 
     /**
      * 1. Send List Users GET request /api/users?page=2. Response body that given test API always returns is can be found
-     *    on reqres.in and corresponding POJO class is UserData
+     * on reqres.in and corresponding POJO class is UserData
      * 2. Validate that avatar file name and users' names coincide
      * 3. Validate that users' emails end with reqres.in
      */
@@ -44,15 +41,15 @@ public class ReqresPojoTest {
     /**
      * Test successful user registration in the system.
      * 1. Send Register Successful POST request with JSON body
-     *      {
-     *          "email": "eve.holt@reqres.in",
-     *          "password": "pistol"
-     *      }
+     * {
+     * "email": "eve.holt@reqres.in",
+     * "password": "pistol"
+     * }
      * 2. Validate that registration is successful. Response that given test API always returns is
-     *      {
-     *          "id": 4,
-     *          "token": "QpwL5tke4Pnpja7X4"
-     *      }
+     * {
+     * "id": 4,
+     * "token": "QpwL5tke4Pnpja7X4"
+     * }
      * 3. Registration is not successful because there is no password.
      * 4. Validate codes of errors
      */
@@ -79,20 +76,20 @@ public class ReqresPojoTest {
     /**
      * Test unsuccessful user registration in the system.
      * 1. Send Register Unsuccessful POST request with JSON body
-     *      {
-     *          "email": "sydney@fife"
-     *      }
-     *    Given test API always returns following respose
-     *      {
-     *          "error": "Missing password"
-     *      }
+     * {
+     * "email": "sydney@fife"
+     * }
+     * Given test API always returns following respose
+     * {
+     * "error": "Missing password"
+     * }
      * 2. Validate the response code is 400
      * 3. Validate the error message in response body
      */
     @Test
-    public void unSuccessfulRegistrationTest(){
+    public void unSuccessfulRegistrationTest() {
         Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecUnique(400));
-        RegisterUser user = new RegisterUser(   "sydney@fife", "");
+        RegisterUser user = new RegisterUser("sydney@fife", "");
         UnSuccessfulRegister unSuccessfulRegister = given()
                 .body(user)
                 .post("/api/register")
@@ -101,13 +98,13 @@ public class ReqresPojoTest {
 
         Assertions.assertEquals("Missing password", unSuccessfulRegister.getError());
     }
+
     /**
-     * Validate that GET List<Resource> returns data sorted by years
      * 1. Send List <Resource> GET Request: api/unknown
-     * 2. Validate thta
+     * 2. Validate that the response contains data sorted by years
      */
     @Test
-    public void sortedYearsTest(){
+    public void sortedYearsTest() {
         Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecUnique(200));
         List<ColorsData> colorsData = given()
                 .when()
@@ -122,12 +119,11 @@ public class ReqresPojoTest {
     }
 
     /**
-     * Delete second user and validate the response status code
-     * 1. Send DELETE request: /api/users/2
-     * 2. Validate that response code is 204
+     * 1. Send DELETE request to delete a user with id = 2: /api/users/2
+     * 2. Validate that response code is 204 (success status response code indicates that a request has succeeded)
      */
     @Test
-    public void deleteUserTest(){
+    public void deleteUserTest() {
         Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpecUnique(204));
         given()
                 .when()

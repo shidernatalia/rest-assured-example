@@ -5,24 +5,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/*
-* GET List<Resource>
-* Request
-* /api/unknown
-* Response
-* 200
-* */
 @AllArgsConstructor
 @NoArgsConstructor
 public class ColorsData {
-    @Getter @Setter
+    @Getter
+    @Setter
     private Integer id;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String name;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Integer year;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String color;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String pantone_value;
 }
