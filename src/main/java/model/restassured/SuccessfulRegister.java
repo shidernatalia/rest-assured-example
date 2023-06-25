@@ -1,4 +1,4 @@
-package model;
+package model.restassured;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,9 +7,9 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterUser {
+public class SuccessfulRegister {
     @Getter @Setter
-    private String email;
+    private int id;
     @Getter @Setter
-    private String password;
+    private String token;
 }

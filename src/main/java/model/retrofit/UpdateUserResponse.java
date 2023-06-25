@@ -1,26 +1,21 @@
-package model;
+package model.retrofit;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
-public class ColorsData {
+public class UpdateUserResponse {
     @Getter
     @Setter
-    private Integer id;
+    public String name;
     @Getter
     @Setter
-    private String name;
+    public String job;
     @Getter
     @Setter
-    private Integer year;
-    @Getter
-    @Setter
-    private String color;
-    @Getter
-    @Setter
-    private String pantone_value;
+    public Date updatedAt;
 }

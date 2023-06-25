@@ -1,4 +1,4 @@
-package model;
+package model.retrofit;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,9 +7,11 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class SuccessfulRegister {
-    @Getter @Setter
-    private int id;
-    @Getter @Setter
-    private String token;
+public class UserCreateRequest {
+    @Getter
+    @Setter
+    public String name;
+    @Getter
+    @Setter
+    public String job;
 }

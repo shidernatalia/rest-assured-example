@@ -16,7 +16,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
-public class ReqresNoPojoTest {
+public class RestAssuredNoPojoTest {
     private final static String URL = "https://reqres.in";
 
     /**

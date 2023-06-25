@@ -1,6 +1,6 @@
 package tests;
 
-import model.*;
+import model.restassured.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import specs.Specifications;
@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
 
-public class ReqresPojoTest {
+public class RestAssuredPojoTest {
     private final static String URL = "https://reqres.in";
 
     /**

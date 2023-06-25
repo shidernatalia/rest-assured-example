@@ -1,26 +1,26 @@
-package model;
+package model.restassured;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserData {
+@NoArgsConstructor
+public class ColorsData {
     @Getter
     @Setter
     private Integer id;
     @Getter
     @Setter
-    private String email;
+    private String name;
     @Getter
     @Setter
-    private String first_name;
+    private Integer year;
     @Getter
     @Setter
-    private String last_name;
+    private String color;
     @Getter
     @Setter
-    private String avatar;
+    private String pantone_value;
 }
